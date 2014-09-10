@@ -7,3 +7,5 @@ Assignment: Git Version Control
 <br>
 <p>Owner: Alex Goodwin</p>
 <p>Group Members: Kevin Martin, Stephen Thoma, Sierra Murphy</p>
+
+Partner: John Raesly
