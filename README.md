@@ -8,4 +8,6 @@ Assignment: Git Version Control
 <p>Owner: Alex Goodwin</p>
 <p>Group Members: Kevin Martin, Stephen Thoma, Sierra Murphy</p>
 
-Partner: John Raesly
+<p>Project Tracking Software: Trello</p>
+
+<p>Github Repo: <a href="https://github.com/AlexGoodwin/Methods">https://github.com/AlexGoodwin/Methods</a></p>
