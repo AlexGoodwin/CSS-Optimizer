@@ -1,0 +1,17 @@
+Web Crawler
+	List all used elements, classes, and ID's
+
+CSS Optimizer
+	Preserve/Remove Comments
+	Sort Selectors
+	Sort Properties
+	Optimize Shorthands
+	Regroup Selectors
+	Fix cases
+
+CSS Minifier
+
+UI
+	Ability to enter URL to be crawled
+	Ability to upload CSS file(s)
+	Ability to paste CSS
