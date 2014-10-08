@@ -4,13 +4,13 @@
 	
 	<h1>CSS Optimizer</h1>
 	
-	<form class="grid-100" action="parser.php">
+	<form class="grid-100" action="parser.php" method="post">
 		<label for="url">Enter URL: </label>
 		<input type="text" placeholder="http://www.">
 		
 		<hr>
 		
-		<textarea placeholder="paste CSS here" rows="10" cols="40"></textarea>
+		<textarea name="input" placeholder="paste CSS here" rows="10" cols="40"></textarea>
 		
 		<br>
 		

@@ -22,4 +22,6 @@
 	
 	<!-- font awesome -->
 	<link href="css/font-awesome.min.css" rel="stylesheet">
+	
+	<? error_reporting(-1); ?>
 </head>
