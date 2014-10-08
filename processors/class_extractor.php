@@ -1,13 +1,12 @@
 <?php
-error_reporting(-1);
-
 function extractIdentifiers($html) {
-        $matches = array();
-        $pattern = "(?:class|id) ?= ?(\"|')(.+?)(\"|')";
-        preg_match($pattern, $html, $matches);
-        return $matches;
+        $res = array();
+        $pattern = "/(class|id) ?= ?(\"|').+?(\"|')/";
+        preg_match_all($pattern, $html, $matches);
+        foreach ($matches[0] as $match) {
+          $clean = explode("\"", $match)[1];
+          array_push($res, $clean);
+        }
+        return $res;
 }
-
-echo extractIdentifiers('id="abcd"')[0];
-
 ?>
