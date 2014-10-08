@@ -12,22 +12,6 @@
 		
 		<textarea name="input" placeholder="paste CSS here" rows="10" cols="40"></textarea>
 		
-		<br>
-		
-		<!--
-<button>On</button> Follow Links
-		<button>OFF</button> Ignore JS
-		-->
-		
-		<!--
-<h2>Compression Settings</h2>
-		<ul>
-			<li>Gentle <small>(Larger File Size)</small></li>
-			<li>Mid</li>
-			<li>Agro <small>(Smallest File Size)</small></li>
-		</ul>
-		-->
-		
 		<h3>Fine-Tune</h3>
 		<ul>
 			<li><input type="checkbox" name="removeComments" > Remove Comments</li>
