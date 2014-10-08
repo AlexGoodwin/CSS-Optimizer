@@ -1,0 +1,19 @@
+body, html{
+	background: #222;
+	color: #FFF;
+	padding: 10px 0;
+}
+
+a.button{
+	background: transparent;
+	border: 1px solid white;
+	padding: 15px;
+	line-height: 20px;
+	color: white;
+	text-decoration: none;
+	margin: 10px 0;
+}
+
+	a.button:hover{
+		background: rgba(255,255,255,.2);
+	}
