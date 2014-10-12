@@ -4,44 +4,32 @@
 	
 	<h1>CSS Optimizer</h1>
 	
-	<form class="grid-50">
+	<form class="grid-100" action="parser.php" method="post">
 		<label for="url">Enter URL: </label>
 		<input type="text" placeholder="http://www.">
 		
 		<hr>
 		
-		<textarea placeholder="paste CSS here" rows="24" cols="40"></textarea>
-		
-	</form>
-	
-	<div class="grid-50">
-		<button>On</button> Follow Links
-		<button>OFF</button> Ignore JS
-		
-		<h2>Compression Settings</h2>
-		<ul>
-			<li>Gentle <small>(Larger File Size)</small></li>
-			<li>Mid</li>
-			<li>Agro <small>(Smallest File Size)</small></li>
-		</ul>
+		<textarea name="input" placeholder="paste CSS here" rows="10" cols="40"></textarea>
 		
 		<h3>Fine-Tune</h3>
 		<ul>
-			<li><input type="checkbox"> Preserve Comments</li>
-			<li><input type="checkbox"> Sort Selectors</li>
-			<li><input type="checkbox"> Sort Properties</li>
-			<li><input type="checkbox"> Shorthand Optimization</li>
-			<li><input type="checkbox"> Fix CaSes</li>
-			<li><input type="checkbox"> Remove White Space</li>
-			<li><input type="checkbox"> Combine Like Selectors</li>
+			<li><input type="checkbox" name="removeComments" > Remove Comments</li>
+			<li><input type="checkbox" name="removeWhiteSpace"> Remove White Space</li>
+			<li><input type="checkbox" name="sortSelectors"> Sort Selectors</li>
+			<li><input type="checkbox" name="sortPorperties"> Sort Properties</li>
+			<li><input type="checkbox" name="shorthand"> Shorthand Optimization</li>
+			<li><input type="checkbox" name="fixCases"> Fix CaSes</li>
+			<li><input type="checkbox" name="combineLikeSelectors"> Combine Like Selectors</li>
 		</ul>
 		
 		<hr>
 		
-		<button type="submit">Go</button>
-	</div>
+		<input type="submit"></input>
+	</form>
 </section>
 <hr>
+<!--
 <section class="grid-parent grid-100">
 	<h1>Optimization Report</h1>
 	
@@ -55,3 +43,4 @@
 		<button disabled="true">Download Compressed CSS</button>
 	</div>
 </section>
+-->
