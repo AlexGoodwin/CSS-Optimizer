@@ -6,4 +6,12 @@ function remove_whitespace($file) {
         return trim($feed);
 
 }
+function remove_comments($file){
+
+	$temp = $file;
+	$temp = preg_replace('!/\*.*?\*/!s', '', $temp;
+	$temp = preg_replace('/\n\s*\n/', "\n", $temp);
+	return $temp;
+
+}
 ?>
