@@ -35,7 +35,7 @@ if($_POST['removeComments']){
 	<section class="grid-parent grid-100">
 			
 			<div class="grid-100">
-				<a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i>Home</a>
+				<a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i> Home</a>
 				
 				<a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
 			</div>
@@ -59,6 +59,8 @@ if($_POST['removeComments']){
 					echo $key." | ".$value."<br>";
 				}
 				?>
+				<h2>Internal Notes:</h2>
+				<p>Remove comments isn't working properly.</p>
 			</div>
 			
 			<div class="grid-50">
