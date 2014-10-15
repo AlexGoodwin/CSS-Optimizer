@@ -2,6 +2,8 @@
 
 include('head.php');
 
+include ('functions.php');
+
 // this is where we process the input from the front page!
 
 // here's the architecture:
