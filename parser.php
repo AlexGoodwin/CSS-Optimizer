@@ -22,6 +22,10 @@ include ('functions.php');
 $file = "results/".explode(' ', microtime())[1].".txt";
 file_put_contents($file, $_POST['input']);
 
+if($_POST['removeWhiteSpace']){
+	echo remove_whitespace($file)."<br>";
+}
+
 ?>
 
 <body>
