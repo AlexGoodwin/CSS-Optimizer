@@ -23,30 +23,54 @@ $file = "results/".explode(' ', microtime())[1].".txt";
 file_put_contents($file, $_POST['input']);
 
 if($_POST['removeWhiteSpace']){
-	echo remove_whitespace($file)."<br>";
+	remove_whitespace($file);
+}
+if($_POST['removeComments']){
+	remove_comments($file);
 }
 
 ?>
 
 <body>
 	<section class="grid-parent grid-100">
-		<div class="grid-100">
 			
-			<a class="button" href="index.php"><i class="fa fa-bolt fa-fw"></i>Home</a>
-
-			<h1>Results: <a href="<? echo $file;?>">Download</a></h1>
-		
-			<h2>Input: </h2>
-			<textarea readonly="true" rows="15" cols="20"><? echo $_POST['input'];?></textarea>
-			
-			<h2>Enabled Settings: </h2>
-			<? 
-			foreach($_POST as $key => $value){
-				if($key === 'input') continue;
+			<div class="grid-100">
+				<a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i>Home</a>
 				
-				echo $key." | ".$value."<br>";
-			}
-			?>
-		</div>
+				<a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
+			</div>
+		
+			<div class="grid-50">
+				<h2>Input: </h2>
+				<textarea readonly="true" rows="15" style="width: 100%;"><? echo $_POST['input'];?></textarea>
+			</div>
+			
+			<div class="grid-50">
+				<h2>Output: </h2>
+				<textarea readonly="true" rows="15" style="width: 100%;"><? echo file_get_contents($file);?></textarea>
+			</div>
+			
+			<div class="grid-50">
+				<h2>Enabled Settings: </h2>
+				<? 
+				foreach($_POST as $key => $value){
+					if($key === 'input') continue;
+					
+					echo $key." | ".$value."<br>";
+				}
+				?>
+			</div>
+			
+			<div class="grid-50">
+				<h2>Results Comparison: </h2>
+				<? 
+					$originalLength = strlen($_POST['input']);
+					$newLength = strlen(file_get_contents($file));
+					$ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2)."%";
+				echo "Original size: ".$originalLength."<br>";
+				echo "Compressed size: ".$newLength."<br>";
+				echo "Size Savings: ".$ratio."<br>";
+				?>
+			</div>
 	</section>
 </body>
