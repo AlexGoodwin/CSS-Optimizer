@@ -66,8 +66,8 @@ if($_POST['removeComments']){
 			<div class="grid-50">
 				<h2>Results Comparison: </h2>
 				<? 
-					$originalLength = strlen($_POST['input']);
-					$newLength = strlen(file_get_contents($file));
+					$originalLength = strlen(utf8_decode($_POST('input'))); ;
+					$newLength = strlen(file_get_contents(utf8_decode($file)));
 					$ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2)."%";
 				echo "Original size: ".$originalLength."<br>";
 				echo "Compressed size: ".$newLength."<br>";
