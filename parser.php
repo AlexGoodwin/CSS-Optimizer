@@ -4,7 +4,7 @@ include('head.php');
 
 include ('functions.php');
 
-// this is where we process the input from the front page!
+// this is where we process the input from the front page
 
 // here's the architecture:
 //		name					type
@@ -22,6 +22,8 @@ include ('functions.php');
 $file = "results/".explode(' ', microtime())[1].".txt";
 file_put_contents($file, $_POST['input']);
 
+
+// Actions. Not sure about what the best order is?
 if($_POST['removeWhiteSpace']){
 	remove_whitespace($file);
 }
