@@ -17,6 +17,7 @@ include ('functions.php');
     This file sucks in the CSS code from our user interface and inputs it as
     a file, extracts the optimizations selected by the user, and calls functions.php
     accordingly to optimize user code.
+    
 */
 
 // this is where we process the input from the front page
