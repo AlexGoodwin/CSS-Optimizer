@@ -4,6 +4,21 @@ include('head.php');
 
 include ('functions.php');
 
+/*!
+	\author Alex Goodwin
+	\author Sierra Murphy
+	\author Kevin Martin
+	\author Stephen
+*/
+
+/*!  \file parser.php
+     \brief Processes input from the front page
+
+    This file sucks in the CSS code from our user interface and inputs it as
+    a file, extracts the optimizations selected by the user, and calls functions.php
+    accordingly to optimize user code.
+*/
+
 // this is where we process the input from the front page
 
 // here's the architecture:
@@ -18,8 +33,7 @@ include ('functions.php');
 //		combineLikeSelectors	bool
 
 
-// this creates a .txt file with the current time in milliseconds and writes the input to it. then we can use the $file throughout!
-$file = "results/".explode(' ', microtime())[1].".txt";
+$file = "results/".explode(' ', microtime())[1].".txt"; /*! < this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout! */
 file_put_contents($file, $_POST['input']);
 
 
