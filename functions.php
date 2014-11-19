@@ -11,7 +11,8 @@
 	\author Alex Goodwin
 	\author Sierra Murphy
 	\author Kevin Martin
-	\author Stephen
+	\author Stephen Thoma
+
 */
 
 /*!  \file functions.php
@@ -20,6 +21,7 @@
     Uses logic from functions remove_whitespace, remove_comments, sort_selectors,
     sort_properties, optimize_shorthand, and fix_cases to optimize and compress
     CSS code based on the preferences input by the user.
+
 */
 
 /*!
@@ -104,11 +106,6 @@ function sort_selectors($file){
 
 */
 function sort_properties($file){
-	// identifies each declaration inside a declaration
-	// block and sorts them alphabetically within that
-	// block.
-	// Care should be given to preserve order of identical
-	// declarations (though we could remove the earlier one)
 
 	return $result;
 }
@@ -124,8 +121,6 @@ function sort_properties($file){
 
 */
 function optimize_shorthand($file){
-	// takes multiple declarations (such as margin-top and
-	// margin-bottom) and replaces with the shorthand version
 
 	return $result;
 }
@@ -144,13 +139,7 @@ function optimize_shorthand($file){
 
 */
 function fix_cases($file){
-	// there should be no uppercase characters in the CSS, with 
-	// the following exceptions:
-	// class and id names
-	// font
-	// font-family
-	// content
-	// url() (such as in "background")
+
 
 	return $result;
 }
