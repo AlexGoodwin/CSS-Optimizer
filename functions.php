@@ -6,11 +6,20 @@
 
 // some good practices to check out:
 // http://csslint.net/
+
 /*!
 	\author Alex Goodwin
 	\author Sierra Murphy
 	\author Kevin Martin
 	\author Stephen
+*/
+
+/*!  \file functions.php
+     \brief Functions to perform optimizations
+
+    Uses logic from functions remove_whitespace, remove_comments, sort_selectors,
+    sort_properties, optimize_shorthand, and fix_cases to optimize and compress
+    CSS code based on the preferences input by the user.
 */
 
 /*!
