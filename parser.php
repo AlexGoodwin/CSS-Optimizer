@@ -8,7 +8,8 @@ include ('functions.php');
 	\author Alex Goodwin
 	\author Sierra Murphy
 	\author Kevin Martin
-	\author Stephen
+	\author Stephen Thoma
+
 */
 
 /*!  \file parser.php
@@ -17,21 +18,22 @@ include ('functions.php');
     This file sucks in the CSS code from our user interface and inputs it as
     a file, extracts the optimizations selected by the user, and calls functions.php
     accordingly to optimize user code.
-    
+
 */
 
-// this is where we process the input from the front page
 
-// here's the architecture:
-//		name					type
-// 		input 					string
-// 		removeComments 			bool
-//		removeWhiteSpace		bool
-//		sortSelectors			bool
-//		sortPorperties			bool
-//		shorthand				bool
-//		fixCases				bool
-//		combineLikeSelectors	bool
+/*!  \breif Architecture of this file
+		name					type
+ 		input 					string
+ 		removeComments 			bool
+		removeWhiteSpace		bool
+		sortSelectors			bool
+		sortPorperties			bool
+		shorthand				bool
+		fixCases				bool
+		combineLikeSelectors	bool
+
+*/
 
 
 $file = "results/".explode(' ', microtime())[1].".txt"; /*! < this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout! */
