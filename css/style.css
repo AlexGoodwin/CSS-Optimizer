@@ -1,7 +1,122 @@
 body, html{
+  height: 100%;
 	background: #222;
-	color: #FFF;
-	padding: 10px 0;
+  color: rgba(236, 240, 241,1.0);
+}
+
+section {
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+a {
+  background-color: transparent;
+  color: rgba(41, 128, 185, 0.75);
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+a:hover,
+a:focus {
+  color: rgba(41, 128, 185, 1.0);
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+h3 {
+  margin-top: 2px;
+  margin-bottom: 13px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+input {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+input:focus {
+  outline: none;
+}
+input[type="checkbox"]:focus {
+  outline: none;
+}
+input[type="text"] {
+  padding: 4px;
+  border-radius: 1px;
+  border: none;
+  background-color: rgba(236, 240, 241,1.0);
+}
+
+label.checkbox-label input[type=checkbox]{
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+}
+
+/* Button styles pulled pretty much verbatim from Bootstrap */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+.btn:focus,
+.btn:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus {
+  color: #333;
+  text-decoration: none;
+  outline: 0;
+}
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+}
+.btn-default {
+  color: rgba(44, 62, 80,1.0);
+  background-color: rgba(236, 240, 241,1.0);
+  border-color: rgba(189, 195, 199,1.0);
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+  color: #333;
+  background-color: rgba(189, 195, 199,1.0);
+  border-color: rgba(189, 195, 199,0.9);
 }
 
 a.button{
@@ -13,18 +128,148 @@ a.button{
 	text-decoration: none;
 	margin: 10px 0;
 }
+a.button:hover{
+  background: rgba(255,255,255,.2);
+}
 
-	a.button:hover{
-		background: rgba(255,255,255,.2);
-	}
-	
-section{
-	margin: 0 auto;
-	padding-top: 20px;
+.grid-container {
+  min-height: 100%;
+  margin-bottom: -75px;
+}
+.grid-container:after {
+  content: "";
+  display: block;
 }
 
 .grid-parent{
 	max-width: 960px;
 }
 
+.header {
+  padding-left: 23px;
+  margin-bottom: 7%;
+}
+.header h1 {
+  font-weight: 400;
+  font-size: 40px;
+  font-family: "helvetica";
+  color: #2c3e50;
+  margin-bottom: 0;
+}
+.header h1>span {
+  font-size: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: -4px;
+  color: rgba(34, 34, 34, 1.0);
+  background: #34495e;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+}
+.header .tagline {
+  margin-top: 0;
+  color: #bdc3c7;
+  font-weight: 300;
+  font-size: 18px;
+  text-transform: lowercase;
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  .header .tagline {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+#css-textarea {
+  background-image: url('../imgs/paste_css.jpg');
+  border-radius: 1px;
+  width: 100%;
+  height: 350px;
+  resize: none;
+}
+#css-textarea:focus {
+  outline: none;
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  #css-textarea {
+    background-image: url('../imgs/paste_css_mobile.jpg');
+    margin-left: -10px;
+    margin-bottom: 25px;
+  }
+}
+
+#tweaks {
+  list-style: none;
+  padding-left: 5px;
+}
+#tweaks li {
+  padding-bottom: 9px;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+#form-bottom {
+  padding-top: 25px;
+}
+
+.css-url {
+  padding-top: 6px;
+  margin-left: 10px;
+}
+.css-url label {
+  float: left;
+  text-align: right;
+}
+.css-url input {
+  margin-left: 10px;
+  width: 60%;
+  float: left;
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  .css-url {
+    margin-left: 0;
+    padding-bottom: 25px;
+  }
+  .css-url input {
+    margin-left: 0;
+  }
+}
+
+.sticky-foot {
+  height: 75px;
+  border-top: 1px solid rgba(52, 73, 94, 0.85);
+  background: rgba(44, 62, 80, 1.0);
+}
+.sticky-foot p {
+  padding-top: 15px;
+  text-align: center;
+  color: rgba(127, 140, 141, 0.8);
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.sticky-foot .grid-container:after {
+  height: 75px;
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  .sticky-foot {
+    margin-top:100px;
+    height: 112px;
+  }
+  .sticky-foot p {
+    margin: 0;
+  }
+  .sticky-foot .grid-33 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
 /* Test Comment */
