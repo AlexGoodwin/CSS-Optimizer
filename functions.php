@@ -11,7 +11,7 @@ function remove_whitespace($file) {
     
     $feed = file_get_contents($file);
     
-    echo "<script>console.log('testing');</script>";
+    echo "<script>console.log('". $feed ."');</script>";
 
 	$result = preg_replace('/\s+/', '', $feed);
 	
@@ -21,9 +21,11 @@ function remove_whitespace($file) {
 }
 function remove_comments($file){
 
-	$result = $file;
-	$result = preg_replace('!/\*.*?\*/!s', '', $result);
+  $feed = file_get_contents($file);
+	$result = preg_replace('!/\*.*?\*/!s', '', $feed);
 	$result = preg_replace('/\n\s*\n/', "\n", $result);
+
+  file_put_contents($file, $result);
 
 	return $result;
 }
