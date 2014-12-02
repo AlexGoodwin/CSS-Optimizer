@@ -35,46 +35,44 @@ if($_POST['removeComments']){
 
 <body>
 	<section class="grid-parent grid-100">
-			
-			<div class="grid-100">
-				<a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i> Home</a>
-				
-				<a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
-			</div>
-		
-			<div class="grid-50">
-				<h2>Input: </h2>
-				<textarea readonly="true" rows="15" style="width: 100%;"><? echo $_POST['input'];?></textarea>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Output: </h2>
-				<textarea readonly="true" rows="15" style="width: 100%;"><? echo file_get_contents($file);?></textarea>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Enabled Settings: </h2>
-				<? 
-				foreach($_POST as $key => $value){
-					if($key === 'input') continue;
-					
-					echo $key." | ".$value."<br>";
-				}
-				?>
-				<h2>Internal Notes:</h2>
-				<p>Remove comments isn't working properly.</p>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Results Comparison: </h2>
-				<? 
-					$originalLength = strlen(utf8_decode($_POST('input'))); ;
-					$newLength = strlen(file_get_contents(utf8_decode($file)));
-					$ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2)."%";
-				echo "Original size: ".$originalLength."<br>";
-				echo "Compressed size: ".$newLength."<br>";
-				echo "Size Savings: ".$ratio."<br>";
-				?>
-			</div>
+    <div class="grid-100">
+      <a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i> Home</a>
+      <a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
+    </div>
+
+    <div class="grid-50">
+      <h2>Input: </h2>
+      <textarea readonly="true" rows="15" style="width: 100%;"><? echo $_POST['input'];?></textarea>
+    </div>
+
+    <div class="grid-50">
+      <h2>Output: </h2>
+      <textarea readonly="true" rows="15" style="width: 100%;"><? echo file_get_contents($file);?></textarea>
+    </div>
+
+    <div class="grid-50">
+      <h2>Enabled Settings: </h2>
+      <?
+        foreach($_POST as $key => $value){
+          if($key === 'input') continue;
+
+          echo $key." | ".$value."<br>";
+        }
+      ?>
+      <h2>Internal Notes:</h2>
+      <p>Remove comments isn't working properly.</p>
+    </div>
+
+    <div class="grid-50">
+      <h2>Results Comparison: </h2>
+      <?
+        $originalLength = strlen(utf8_decode($_POST('input'))); ;
+        $newLength = strlen(file_get_contents(utf8_decode($file)));
+        $ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2)."%";
+        echo "Original size: ".$originalLength."<br>";
+        echo "Compressed size: ".$newLength."<br>";
+        echo "Size Savings: ".$ratio."<br>";
+      ?>
+    </div>
 	</section>
 </body>
