@@ -78,13 +78,18 @@ if($_POST['removeComments']){
             </div>
           </div>
           <ul class="enabled-tweaks">
-            <li>
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-stack-2x fa-circle-thin"></i>
-                <i class="fa fa-stack-1x fa-check tweak-icon"></i>
-              </span>
-                Remove comments
-            </li>
+            <?
+              foreach($_POST as $key => $value){
+                if($key === 'input') continue;
+                  echo
+                    '<li>
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-stack-2x fa-circle-thin"></i>
+                        <i class="fa fa-stack-1x fa-check tweak-icon"></i>
+                      </span>'
+                    .$key.'</li>';
+              }
+            ?>
           </ul>
         </div>
 
