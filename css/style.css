@@ -145,11 +145,17 @@ a.button:hover{
 	max-width: 960px;
 }
 
+.col-center {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .header {
   padding-left: 23px;
-  margin-bottom: 7%;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
+  margin-bottom: 5%;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
 }
 .header h1 {
   font-weight: 400;
@@ -280,21 +286,33 @@ and (max-device-width : 480px) {
 }
 /* ---- PAGE: PARSER ---- */
 .css-area {
+  font-family: monospace;
+  overflow: scroll;
   background-color: rgba(236, 240, 241, 1.0);
   border: 1px solid rgba(226, 230, 231, 1.0);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   width: 100%;
-  height: 500px;
+  height: 450px;
 }
 
+code {
+  font-size: 12px;
+}
 
-.enabled-tweaks {
+ul.enabled-tweaks {
+  text-align: center;
   list-style: none;
+  padding-left: 0;
+}
+
+#tweaks-title {
+  text-align: center;
 }
 .enabled-tweaks li {
   color: rgba(236, 240, 241,1.0);
   font-weight: 300;
   font-size: 13px;
+  display: inline-block;
   padding-bottom: 30px;
 }
 .tweak-icon {
