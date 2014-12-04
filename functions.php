@@ -8,13 +8,11 @@
 // http://csslint.net/
 
 function remove_whitespace($file) {
-    
+
     $feed = file_get_contents($file);
-    
-    echo "<script>console.log('". $feed ."');</script>";
 
 	$result = preg_replace('/\s+/', '', $feed);
-	
+
 	file_put_contents($file, $result);
 
     return $result;

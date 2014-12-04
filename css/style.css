@@ -325,6 +325,8 @@ ul.enabled-tweaks {
 
 #tweaks-title {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 .enabled-tweaks li {
   color: rgba(236, 240, 241,1.0);
