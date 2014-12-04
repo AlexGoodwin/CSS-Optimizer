@@ -1,5 +1,9 @@
-$(document).ready(function() {
+function animate_gauge(pct) {
+  trans = "rotate(" + (pct / 2) / 100 + "turn)";
+  $(".meter").css({transform : trans});
+}
 
+$(document).ready(function() {
   $("#css-textarea").click(function() {
     $(this).css("background-image", "none");
     $(this).css("background-color", "#ecf0f1");

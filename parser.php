@@ -57,11 +57,24 @@ if($_POST['removeComments']){
         </div>
 
         <div class="grid-30">
+          <?
+            try {
+              $originalLength = strlen(utf8_decode($_POST['input'])); ;
+              $newLength = strlen(file_get_contents(utf8_decode($file)));
+              $ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2);
+              echo "<script>$(document).ready(function() { animate_gauge(".$ratio.") })</script>";
+              //echo "Original size: ".$originalLength."<br>";
+              //echo "Compressed size: ".$newLength."<br>";
+              //echo "Size Savings: ".$ratio."<br>";
+            } catch (Exception $e) {
+              echo "Error calculating compression statistics.";
+            }
+          ?>
           <h3 id="tweaks-title">Compression</h3>
           <div class="gauge col-center">
             <div class="meter"></div>
             <div class="percentage-container">
-              84%
+              <? echo round($ratio)."%"; ?>
             </div>
           </div>
           <ul class="enabled-tweaks">
