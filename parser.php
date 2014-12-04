@@ -35,23 +35,40 @@ if($_POST['removeComments']){
 
   <div class="grid-container">
     <section class="grid-parent grid-100">
-      <div class="header grid-40 push-30">
-        <h1><span>CSS</span> OPTIMIZER</h1>
-        <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
-      </div>
       <div class="grid-100">
-        <a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i> Home</a>
-        <a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
+        <div class="header grid-40 push-30">
+          <a href="index.php">
+            <h1><span>CSS</span> OPTIMIZER</h1>
+            <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
+          </a>
+        </div>
       </div>
 
-      <div class="grid-50">
-        <h2>Input: </h2>
-        <textarea readonly="true" rows="15" style="width: 100%;"><? echo $_POST['input'];?></textarea>
+      <div class="grid-30">
+        <div id="input-css" class="css-area">
+          <? echo $_POST['input'];?>
+        </div>
       </div>
 
-      <div class="grid-50">
-        <h2>Output: </h2>
-        <textarea readonly="true" rows="15" style="width: 100%;"><? echo file_get_contents($file);?></textarea>
+      <div class="grid-30">
+        <h2>Compression</h2>
+        <div class="gauge">
+          <div class="meter"></div>
+          <div class="percentage-container">
+            84%
+          </div>
+        </div>
+        <ul class="enabled-tweaks">
+          <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
+          <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
+          <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
+        </ul>
+      </div>
+
+      <div class="grid-30">
+        <div id="output-css" class="css-area">
+          <? echo file_get_contents($file);?>
+        </div>
       </div>
 
     </section>
