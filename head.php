@@ -19,7 +19,7 @@
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
   <!-- js -->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <!-- Adobe Typekit -->
 <!--     <script type="text/javascript" src="http://use.typekit.net/ote6eux.js"></script> -->
