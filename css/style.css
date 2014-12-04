@@ -148,6 +148,8 @@ a.button:hover{
 .header {
   padding-left: 23px;
   margin-bottom: 7%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 .header h1 {
   font-weight: 400;
@@ -165,6 +167,9 @@ a.button:hover{
   background: #34495e;
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 2px;
+}
+.header h1>span:hover {
+  background-color: rgba(52, 152, 219,0.5);
 }
 .header .tagline {
   margin-top: 0;

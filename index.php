@@ -3,8 +3,10 @@
 <div class="grid-container">
   <section class="grid-parent grid-100">
     <div class="header grid-40 push-30">
-      <h1><span>CSS</span> OPTIMIZER</h1>
-      <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
+      <a href="#">
+        <h1><span>CSS</span> OPTIMIZER</h1>
+        <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
+      </a>
     </div>
 
     <form class="grid-100 push-5" action="parser.php" method="post">
