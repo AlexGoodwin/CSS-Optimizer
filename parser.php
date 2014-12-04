@@ -44,12 +44,15 @@ if($_POST['removeComments']){
         </div>
       </div>
 
-      <div class="grid-100 push-5">
+      <div class="grid-100">
         <div class="grid-35">
-          <div id="input-css" class="css-area">
-            <code class="language-css">
-              <? echo $_POST['input'];?>
-            </code>
+          <div class="css-area">
+            <h2><i class="fa fa-arrow-circle-o-down light"></i> Input</h2>
+            <div class="code-wrapper">
+              <code class="language-css">
+                <? echo $_POST['input'];?>
+              </code>
+            </div>
           </div>
         </div>
 
@@ -62,17 +65,24 @@ if($_POST['removeComments']){
             </div>
           </div>
           <ul class="enabled-tweaks">
-            <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
-            <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
-            <li><i class="fa fa-check-circle-o fa-3x tweak-icon"></i>Remove comments</li>
+            <li>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-stack-2x fa-circle-thin"></i>
+                <i class="fa fa-stack-1x fa-check tweak-icon"></i>
+              </span>
+                Remove comments
+            </li>
           </ul>
         </div>
 
         <div class="grid-35">
-          <div id="output-css" class="css-area">
-            <code class="language-css">
-              <? echo file_get_contents($file);?>
-            </code>
+          <div class="css-area">
+            <h2><i class="fa fa-arrow-circle-o-up light"></i> Output</h2>
+            <div class="code-wrapper">
+              <code class="language-css">
+                <? echo file_get_contents($file);?>
+              </code>
+            </div>
           </div>
         </div>
       </div>
