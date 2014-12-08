@@ -33,48 +33,88 @@ if($_POST['removeComments']){
 
 ?>
 
-<body>
-	<section class="grid-parent grid-100">
-			
-			<div class="grid-100">
-				<a class="button pull-left" href="index.php"><i class="fa fa-chevron-left fa-fw"></i> Home</a>
-				
-				<a class="button pull-right" href="<? echo $file;?>"><i class="fa fa-download fa-fw"></i> Download</a>
-			</div>
-		
-			<div class="grid-50">
-				<h2>Input: </h2>
-				<textarea readonly="true" rows="15" style="width: 100%;"><? echo $_POST['input'];?></textarea>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Output: </h2>
-				<textarea readonly="true" rows="15" style="width: 100%;"><? echo file_get_contents($file);?></textarea>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Enabled Settings: </h2>
-				<? 
-				foreach($_POST as $key => $value){
-					if($key === 'input') continue;
-					
-					echo $key." | ".$value."<br>";
-				}
-				?>
-				<h2>Internal Notes:</h2>
-				<p>Remove comments isn't working properly.</p>
-			</div>
-			
-			<div class="grid-50">
-				<h2>Results Comparison: </h2>
-				<? 
-					$originalLength = strlen(utf8_decode($_POST('input'))); ;
-					$newLength = strlen(file_get_contents(utf8_decode($file)));
-					$ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2)."%";
-				echo "Original size: ".$originalLength."<br>";
-				echo "Compressed size: ".$newLength."<br>";
-				echo "Size Savings: ".$ratio."<br>";
-				?>
-			</div>
-	</section>
-</body>
+  <div class="grid-container">
+    <section class="grid-parent grid-100">
+      <div class="grid-100">
+        <div class="header grid-40 push-30">
+          <a href="index.php">
+            <h1><span>CSS</span> OPTIMIZER</h1>
+            <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-100">
+        <div class="grid-35">
+          <div class="css-area">
+            <h2><i class="fa fa-arrow-circle-o-down light"></i> Input</h2>
+            <div class="code-wrapper">
+              <code class="language-css">
+                <? echo $_POST['input'];?>
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-30">
+          <?
+            try {
+              $originalLength = strlen(utf8_decode($_POST['input'])); ;
+              $newLength = strlen(file_get_contents(utf8_decode($file)));
+              $ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2);
+              echo "<script>$(document).ready(function() { animate_gauge(".$ratio.") })</script>";
+              //echo "Original size: ".$originalLength."<br>";
+              //echo "Compressed size: ".$newLength."<br>";
+              //echo "Size Savings: ".$ratio."<br>";
+            } catch (Exception $e) {
+              echo "Error calculating compression statistics.";
+            }
+          ?>
+          <h3 id="tweaks-title">Compression</h3>
+          <div class="gauge col-center">
+            <div class="meter"></div>
+            <div class="percentage-container">
+              <? echo round($ratio)."%"; ?>
+            </div>
+          </div>
+          <ul class="enabled-tweaks">
+            <?
+              foreach($_POST as $key => $value){
+                if($key === 'input') continue;
+                  echo
+                    '<li>
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-stack-2x fa-circle-thin"></i>
+                        <i class="fa fa-stack-1x fa-check tweak-icon"></i>
+                      </span>'
+                    .$key.'</li>';
+              }
+            ?>
+          </ul>
+        </div>
+
+        <div class="grid-35">
+          <div class="css-area">
+            <h2><i class="fa fa-arrow-circle-o-up light"></i> Output</h2>
+            <div class="code-wrapper">
+              <code class="language-css">
+                <? echo file_get_contents($file);?>
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <footer class="sticky-foot">
+    <div class="grid-33">
+      <p>Handcrafted in Boulder, Co</p>
+    </div>
+    <div class="grid-33">
+      <p>by <a href="http://www.alexgoodwinmedia.com">Alex</a>, <a href="http://www.kevinmart.in">Kevin</a>, Sierra, and <a href="http://www.stephenthoma.com">Stephen</a></p>
+    </div>
+    <div class="grid-33">
+      <p>Software Methods, 2014</p>
+    </div>
+  </footer>
