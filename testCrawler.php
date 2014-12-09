@@ -40,7 +40,7 @@ function find_and_combine_css($url){
 
 	$masterCss = '';
 
-	echo "<br><br>";
+	echo "<br><hr><br>";
 
 	foreach($cssArray as $key => $value){
 // 		$masterCss .= file_get_contents($value);

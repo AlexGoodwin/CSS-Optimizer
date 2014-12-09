@@ -231,8 +231,10 @@ function find_and_combine_css($url){
 			$regex = '%".+"%';
 			$string = preg_replace($regex, '', $string);
 			$string = str_replace('"', "", $string);
-			if(!preg_match_all('%css%', $string)) continue;
-			//echo $string.'<br>';
+			$array2 = array();
+			if(!preg_match_all('%css%', $string, $array2)) continue;
+			if(substr($string, 0,1) == '/') $string = substr($string, 1);
+// 			echo $string.'<br>';
 			if(substr($string, 0, 2) == '//'){
 				$cssArray[] = 'http:'.$string;
 			}
@@ -246,9 +248,6 @@ function find_and_combine_css($url){
 	}
 
 	$masterCss = '';
-
-	echo "<br><br>";
-
 	foreach($cssArray as $key => $value){
 		$masterCss .= file_get_contents($value);
 // 		echo $value.'<br>';

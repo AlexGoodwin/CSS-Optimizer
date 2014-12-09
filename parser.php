@@ -35,7 +35,7 @@ include ('functions.php');
 */
 
 // this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout!
-$file = "results/".explode(' ', microtime())[1].".css";
+$file = "results/".explode(' ', microtime()).".css";
 
 // prioritize the textarea over the url
 if(strlen($_POST['input']) < 1){
@@ -89,7 +89,7 @@ if($_POST['removeComments']){
         <div class="header grid-40 push-30">
           <a href="index.php">
             <h1><span>CSS</span> OPTIMIZER</h1>
-            <? include('tagline.php');?>
+            <p>Let's get that CSS tidied up, shall we?</p>
           </a>
         </div>
       </div>
