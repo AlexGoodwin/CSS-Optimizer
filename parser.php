@@ -34,8 +34,8 @@ include ('functions.php');
 
 */
 
-
-$file = "results/".explode(' ', microtime())[1].".txt"; /*! < this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout! */
+// this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout!
+$file = "results/".explode(' ', microtime())[1].".css";
 
 // prioritize the textarea over the url
 if(strlen($_POST['input']) < 1){
@@ -76,9 +76,14 @@ if($_POST['removeComments']){
         <div class="header grid-40 push-30">
           <a href="index.php">
             <h1><span>CSS</span> OPTIMIZER</h1>
-            <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
-            <? echo 'original filesize: '.filesize($originalFile).'<br>new filesize: '.filesize($file).'<br>';?>
+            <? include('tagline.php');?>
           </a>
+        </div>
+      </div>
+
+      <div class="grid-100">
+		<div class="grid-35 push-65">
+			<a class="button full" href="<?echo $file;?>"><i class='fa fa-download'></i> Download Result</a>
         </div>
       </div>
 
@@ -114,6 +119,9 @@ if($_POST['removeComments']){
             <div class="percentage-container">
               <? echo round($ratio)."%"; ?>
             </div>
+          </div>
+          <div class="fileSizes">
+	      <? echo '<p>Original filesize: <span>'.filesize($originalFile).'</span></p><p>New filesize: <span>'.filesize($file).'</span></p>';?>
           </div>
           <ul class="enabled-tweaks">
             <?

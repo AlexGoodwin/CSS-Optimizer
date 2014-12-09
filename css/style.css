@@ -35,6 +35,18 @@ h3 {
   text-transform: uppercase;
 }
 
+.fileSizes{
+	display: inline-block;
+	margin-left: 55px;
+}
+.fileSizes p{
+	text-align: right;
+}
+.fileSizes span{
+	min-width: 50px;
+	text-align: left;
+}
+
 input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -131,9 +143,19 @@ a.button{
 	color: white;
 	text-decoration: none;
 	margin: 10px 0;
+	display: inline-block;
+	box-sizing: border-box;
 }
 a.button:hover{
   background: rgba(255,255,255,.2);
+}
+
+a.button.full{
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 200;
+	margin: 0 0 10px;
 }
 
 .grid-container {
@@ -157,7 +179,7 @@ a.button:hover{
 
 .header {
   padding-left: 23px;
-  margin-bottom: 5%;
+  margin-bottom: 0;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
 }

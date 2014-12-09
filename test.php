@@ -1,5 +1,1 @@
-<?
-	require('functions.php');
-	$file = 'css/font-awesome.css';
-	$file = remove_whitespace($file);
-	echo $file;
+<? echo file_get_contents('results/1418096205.txt');
