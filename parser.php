@@ -138,13 +138,14 @@ if($_POST['removeComments']){
             <?
               foreach($_POST as $key => $value){
                 if($key === 'input') continue;
-                  echo
-                    '<li>
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-stack-2x fa-circle-thin"></i>
-                        <i class="fa fa-stack-1x fa-check tweak-icon"></i>
-                      </span>'
-                    .$key.'</li>';
+				if($value){
+					echo '<li>
+							<span class="fa-stack fa-lg">
+							<i class="fa fa-stack-2x fa-circle-thin"></i>
+							<i class="fa fa-stack-1x fa-check tweak-icon"></i>
+							</span>'
+							.$key.'</li>';
+				}
               }
             ?>
           </ul>

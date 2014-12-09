@@ -209,6 +209,9 @@ function get_user_agent_string() {
 }
 
 function find_and_combine_css($url){
+	if(substr($url, -1) != '/'){
+		$url .= '/';
+	}
 	$urlFile = file_get_contents($url);
 
 	$chunks = array();
@@ -228,17 +231,29 @@ function find_and_combine_css($url){
 			$regex = '%".+"%';
 			$string = preg_replace($regex, '', $string);
 			$string = str_replace('"', "", $string);
-			$cssArray[] = $url.$string;
+			if(!preg_match_all('%css%', $string)) continue;
+			//echo $string.'<br>';
+			if(substr($string, 0, 2) == '//'){
+				$cssArray[] = 'http:'.$string;
+			}
+			else if(substr($string, 0,4) == 'http'){
+				$cssArray[] = $string;
+			}
+			else{
+				$cssArray[] = $url.$string;
+			}
 		}
 	}
 
 	$masterCss = '';
 
+	echo "<br><br>";
+
 	foreach($cssArray as $key => $value){
-		$masterCss .= file_get_contents($value);
+// 		$masterCss .= file_get_contents($value);
+		echo $value.'<br>';
 	}
 
 	return $masterCss;
 }
-
 ?>
