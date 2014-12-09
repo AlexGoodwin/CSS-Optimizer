@@ -24,7 +24,8 @@ function find_and_combine_css($url){
 			$string = preg_replace($regex, '', $string);
 			$string = str_replace('"', "", $string);
 			if(!preg_match_all('%css%', $string)) continue;
-			//echo $string.'<br>';
+			if(substr($string, 0,1) == '/') $string = substr($string, 1);
+			echo $string.'<br>';
 			if(substr($string, 0, 2) == '//'){
 				$cssArray[] = 'http:'.$string;
 			}
@@ -50,5 +51,5 @@ function find_and_combine_css($url){
 }
 
 
-	$url = 'http://alexgoodwinmedia.com/advweb';
+	$url = 'http://wisdom.com/';
 	echo find_and_combine_css($url);

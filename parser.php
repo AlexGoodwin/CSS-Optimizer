@@ -35,7 +35,7 @@ include ('functions.php');
 */
 
 // this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout!
-$file = "results/".explode(' ', microtime()).".css";
+$file = "results/".explode(' ', microtime())[1].".css";
 
 // prioritize the textarea over the url
 if(strlen($_POST['input']) < 1){
@@ -67,6 +67,8 @@ else{
 	file_put_contents($file, $_POST['input']);
 	$originalLength = filesize($file);
 }
+
+if ($originalLength == 0) $originalLength = 1;
 
 $originalFile = 'results/testing.txt';
 file_put_contents($originalFile, file_get_contents($file));

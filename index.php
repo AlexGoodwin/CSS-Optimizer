@@ -21,11 +21,13 @@
           <ul id="tweaks">
             <li><label class="checkbox-label"><input type="checkbox" checked="checked" name="removeComments"> Remove comments</label></li>
             <li><label class="checkbox-label"><input type="checkbox" checked="checked" name="removeWhiteSpace"> Remove whitespace</label></li>
-            <li><label class="checkbox-label"><input type="checkbox" name="sortSelectors"> Sort selectors</label></li>
+            <!--
+<li><label class="checkbox-label"><input type="checkbox" name="sortSelectors"> Sort selectors</label></li>
             <li><label class="checkbox-label"><input type="checkbox" name="sortPorperties"> Sort properties</label></li>
             <li><label class="checkbox-label"><input type="checkbox" name="shorthand"> Shorthand optimization</label></li>
             <li><label class="checkbox-label"><input type="checkbox" name="fixCases"> Fix capitalization</label></li>
             <li><label class="checkbox-label"><input type="checkbox" name="combineLikeSelectors"> Combine like selectors</label></li>
+-->
           </ul>
         </div>
       </div>

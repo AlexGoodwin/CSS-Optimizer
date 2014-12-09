@@ -250,8 +250,8 @@ function find_and_combine_css($url){
 	echo "<br><br>";
 
 	foreach($cssArray as $key => $value){
-// 		$masterCss .= file_get_contents($value);
-		echo $value.'<br>';
+		$masterCss .= file_get_contents($value);
+// 		echo $value.'<br>';
 	}
 
 	return $masterCss;
