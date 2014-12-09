@@ -118,23 +118,20 @@ if($_POST['removeComments']){
     </div>
   </footer>
 <?
-
+require('settings.inc');
 // write new row to sql table
-$con = mysqli_connect('localhost','root','root','cssOptimizer');
+$con = mysqli_connect($sql_host, $sql_user, $sql_password, $sql_database);
 	// Check connection
 	if (mysqli_connect_errno()){
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-
 $options = '';
-
 foreach($_POST as $key => $value){
 	if($value){
 		$options .= $key.',';
 	}
 }
-
+// remove trailing comma
 $options = rtrim($options, ',');
-
 $query = 'INSERT INTO sessions (options, compression) VALUES ("'.$options.'", '.$ratio.');';
 $result = mysqli_query($con, $query);
