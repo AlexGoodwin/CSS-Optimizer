@@ -4,6 +4,7 @@ include('head.php');
 
 include ('functions.php');
 
+
 // this is where we process the input from the front page
 
 // here's the architecture:
@@ -17,10 +18,28 @@ include ('functions.php');
 //		fixCases				bool
 //		combineLikeSelectors	bool
 
-
 // this creates a .txt file with the current time in milliseconds and writes the input to it. then we can use the $file throughout!
 $file = "results/".explode(' ', microtime())[1].".txt";
-file_put_contents($file, $_POST['input']);
+
+// prioritize the textarea over the url
+if(strlen($_POST['input']) < 1){
+	$inputSource = 'url';
+	$url = htmlspecialchars($_POST['url']);
+	$urlSize = curl_get_file_size($url);
+
+	if($urlSize < 1000000){
+		file_put_contents($file, fopen($url, 'r'));
+		$originalLength = filesize($file);
+	}
+	else{
+		echo '<script>console.log("file is too big");</script>';
+	}
+}
+else{
+	$inputSource = 'input';
+	file_put_contents($file, $_POST['input']);
+	$originalLength = filesize($file);
+}
 
 // Actions. Not sure about what the best order is?
 if($_POST['removeWhiteSpace']){
@@ -49,7 +68,8 @@ if($_POST['removeComments']){
             <h2><i class="fa fa-arrow-circle-o-down light"></i> Input</h2>
             <div class="code-wrapper">
               <code class="language-css">
-                <? echo $_POST['input'];?>
+                <? if($inputSource == 'input'){ echo $_POST['input'];}
+	               else{echo file_get_contents(utf8_decode($file));}?>
               </code>
             </div>
           </div>
@@ -58,7 +78,6 @@ if($_POST['removeComments']){
         <div class="grid-30">
           <?
             try {
-              $originalLength = strlen(utf8_decode($_POST['input'])); ;
               $newLength = strlen(file_get_contents(utf8_decode($file)));
               $ratio = number_format((100 - (($newLength/$originalLength) * 100)), 2);
               echo "<script>$(document).ready(function() { animate_gauge(".$ratio.") })</script>";

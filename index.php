@@ -34,7 +34,7 @@
       <div id="form-bottom" class="grid-100">
         <div class="grid-40 css-url">
           <label for="url">Or enter a URL: </label>
-          <input type="text" id="url" placeholder="http://www.example.com/css/main.css">
+          <input type="text" name="url" placeholder="http://www.example.com/css/main.css">
         </div>
 
         <div class="grid-20 push-40">
