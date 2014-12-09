@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(-1);
+
 include('head.php');
 
 include ('functions.php');
@@ -19,7 +21,7 @@ include ('functions.php');
 
 
 // this creates a .txt file with the current time in milliseconds and writes the input to it. then we can use the $file throughout!
-$file = "results/".explode(' ', microtime())[1].".txt";
+$file = "results/".explode(' ', microtime()).".txt";
 file_put_contents($file, $_POST['input']);
 
 // Actions. Not sure about what the best order is?
@@ -111,30 +113,27 @@ if($_POST['removeComments']){
       <p>Handcrafted in Boulder, Co</p>
     </div>
     <div class="grid-33">
-      <p>by <a href="http://www.alexgoodwinmedia.com">Alex</a>, <a href="http://www.kevinmart.in">Kevin</a>, Sierra, and <a href="http://www.stephenthoma.com">Stephen</a></p>
+      <p>by <a href="http://www.alexgoodwinmedia.com">Alex</a>, <a href="http://www.kevinmart.in">Kevin</a>, <a href="http://www.sarahpac.com">Sierra</a>, and <a href="http://www.stephenthoma.com">Stephen</a></p>
     </div>
     <div class="grid-33">
       <p>Software Methods, 2014</p>
     </div>
   </footer>
 <?
-
+require('settings.inc');
 // write new row to sql table
-$con = mysqli_connect('localhost','root','root','cssOptimizer');
+$con = mysqli_connect($sql_host, $sql_user, $sql_password, $sql_database);
 	// Check connection
 	if (mysqli_connect_errno()){
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-
 $options = '';
-
 foreach($_POST as $key => $value){
 	if($value){
 		$options .= $key.',';
 	}
 }
-
+// remove trailing comma
 $options = rtrim($options, ',');
-
 $query = 'INSERT INTO sessions (options, compression) VALUES ("'.$options.'", '.$ratio.');';
 $result = mysqli_query($con, $query);
