@@ -7,6 +7,34 @@
 // some good practices to check out:
 // http://csslint.net/
 
+/*!
+	\author Alex Goodwin
+	\author Sierra Murphy
+	\author Kevin Martin
+	\author Stephen Thoma
+
+*/
+
+/*!  \file functions.php
+     \brief Functions to perform optimizations
+
+    Uses logic from functions remove_whitespace, remove_comments, sort_selectors,
+    sort_properties, optimize_shorthand, and fix_cases to optimize and compress
+    CSS code based on the preferences input by the user.
+
+*/
+
+/*!
+     \brief A function to remove whitespace from submitted CSS code
+     \param $file the file to be parsed
+     \param $feed the contents of the submitted file
+     \param $result the version of the submitted file without whitespace
+
+     remove_whitespace searches through the file for all whitespace and removes it
+     to compress the code into a more compact version.  This helps free up memory,
+     and slightly increases speed and performance
+
+*/	
 function remove_whitespace($file) {
 
     $feed = file_get_contents($file);
@@ -17,6 +45,17 @@ function remove_whitespace($file) {
 
     return $result;
 }
+
+/*!
+     \brief A function to remove comments from submitted code
+     \param $file the file to be parsed
+     \param $result the version of the submitted file without comments
+
+     remove_comments searches through the file for all comments and removes them
+     to compress the code into a more compact version.  This helps free up memory,
+     and increases speed and performance.
+
+*/	
 function remove_comments($file){
 
 	$feed = file_get_contents($file);
@@ -26,6 +65,16 @@ function remove_comments($file){
 	return $result;
 }
 
+/*!
+     \brief A function to sort selectors alphabetically
+     \param $file the file to be parsed
+     \param $result the optimized version of the submitted file 
+
+     sort_selectors searches through the file for all selectors and rearranges
+     them into alphabetical order.  This helps speed up the program by listing
+     the selectors in a logical order.
+
+*/
 function sort_selectors($file){
 	// identifies each CSS declaration block and
 	// rearranges them by alphabetical order by selector
@@ -44,23 +93,49 @@ function sort_selectors($file){
 	return $result;
 }
 
+/*!
+     \brief A function to sort declarations alphabetically
+     \param $file the file to be parsed
+     \param $result the optimized version of the submitted file 
+
+     sort_properties identifies declarations inside a declaration block and
+     sorts them alphabetically within that block.  Be careful to preserve order of
+     identical declarations (though the earlier one could ideally be removed)
+
+*/
 function sort_properties($file){
-	// identifies each declaration inside a declaration
-	// block and sorts them alphabetically within that
-	// block.
-	// Care should be given to preserve order of identical
-	// declarations (though we could remove the earlier one)
 
 	return $result;
 }
 
+/*!
+     \brief A function to convert declarations to shorthand
+     \param $file the file to be parsed
+     \param $result the optimized version of the submitted file 
+
+	 optimize_shorthand takes multiple declarations (such as margin-top and 
+	 margin-bottom) and replaces them with the shorthand version of that
+	 command.  This both compresses the physical code and improves speed.
+
+*/
 function optimize_shorthand($file){
-	// takes multiple declarations (such as margin-top and
-	// margin-bottom) and replaces with the shorthand version
 
 	return $result;
 }
 
+/*!
+     \brief A function to remove unneccesary uppercase characters
+     \param $file the file to be parsed
+     \param $result the optimized version of the submitted file 
+
+     fix_cases removes uppercase characters in CSS with a few exceptions:
+     1) Class and Id names
+     2) Font
+     3) Font-family
+     4) Content
+     5) url() (such as in "background")
+
+*/
 function fix_cases($file){
 	// there should be no uppercase characters in the CSS, with
 	// the following exceptions:
