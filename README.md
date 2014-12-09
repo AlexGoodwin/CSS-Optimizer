@@ -10,4 +10,4 @@ Assignment: Git Version Control
 
 <p>Project Tracking Software: Trello</p>
 
-<p>Github Repo: <a href="https://github.com/AlexGoodwin/Methods">https://github.com/AlexGoodwin/Methods</a></p>
+<p>Github Repo: <a href="https://github.com/AlexGoodwin/CSS-Optimizer">https://github.com/AlexGoodwin/CSS-Optimizer</a></p>

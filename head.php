@@ -12,10 +12,17 @@
 	<!-- css -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/unsemantic-grid-responsive.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gauge.css">
+    <link rel="stylesheet" href="css/prism.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    
+
+  <!-- js -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/prism.js"></script>
     <!-- Adobe Typekit -->
 <!--     <script type="text/javascript" src="http://use.typekit.net/ote6eux.js"></script> -->
 <!-- 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
