@@ -22,7 +22,6 @@ include ('functions.php');
 $file = "results/".explode(' ', microtime())[1].".txt";
 file_put_contents($file, $_POST['input']);
 
-
 // Actions. Not sure about what the best order is?
 if($_POST['removeWhiteSpace']){
 	remove_whitespace($file);
@@ -118,3 +117,24 @@ if($_POST['removeComments']){
       <p>Software Methods, 2014</p>
     </div>
   </footer>
+<?
+
+// write new row to sql table
+$con = mysqli_connect('localhost','root','root','cssOptimizer');
+	// Check connection
+	if (mysqli_connect_errno()){
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+
+$options = '';
+
+foreach($_POST as $key => $value){
+	if($value){
+		$options .= $key.',';
+	}
+}
+
+$options = rtrim($options, ',');
+
+$query = 'INSERT INTO sessions (options, compression) VALUES ("'.$options.'", '.$ratio.');';
+$result = mysqli_query($con, $query);
