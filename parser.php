@@ -112,7 +112,7 @@ if($_POST['removeComments']){
       <p>Handcrafted in Boulder, Co</p>
     </div>
     <div class="grid-33">
-      <p>by <a href="http://www.alexgoodwinmedia.com">Alex</a>, <a href="http://www.kevinmart.in">Kevin</a>, Sierra, and <a href="http://www.stephenthoma.com">Stephen</a></p>
+      <p>by <a href="http://www.alexgoodwinmedia.com">Alex</a>, <a href="http://www.kevinmart.in">Kevin</a>, <a href="http://www.sarahpac.com">Sierra</a>, and <a href="http://www.stephenthoma.com">Stephen</a></p>
     </div>
     <div class="grid-33">
       <p>Software Methods, 2014</p>
