@@ -42,7 +42,8 @@ function remove_whitespace($file) {
 	// old version
 	//$result = preg_replace('/\s+^\n/', '', $feed);
 
-	$result = str_replace(array("\r", "\n"), "", $feed);
+	//$result = str_replace(array("\r", "\n"), "", $feed);
+	$result = preg_replace( '/\s+/', ' ', $feed );
 
 	file_put_contents($file, $result);
 
