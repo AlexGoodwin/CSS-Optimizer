@@ -11,7 +11,7 @@ function remove_whitespace($file) {
 
     $feed = file_get_contents($file);
 
-	$result = preg_replace('/\s+/', '', $feed);
+	$result = preg_replace('/\s+^\n/', '', $feed);
 
 	file_put_contents($file, $result);
 
