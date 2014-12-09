@@ -1,1 +1,1 @@
-<? echo file_get_contents('results/1418096205.txt');
+<?

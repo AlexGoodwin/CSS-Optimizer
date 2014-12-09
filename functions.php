@@ -34,7 +34,7 @@
      to compress the code into a more compact version.  This helps free up memory,
      and slightly increases speed and performance
 
-*/	
+*/
 function remove_whitespace($file) {
 
     $feed = file_get_contents($file);
@@ -58,7 +58,7 @@ function remove_whitespace($file) {
      to compress the code into a more compact version.  This helps free up memory,
      and increases speed and performance.
 
-*/	
+*/
 function remove_comments($file){
 
 	$feed = file_get_contents($file);
@@ -71,7 +71,7 @@ function remove_comments($file){
 /*!
      \brief A function to sort selectors alphabetically
      \param $file the file to be parsed
-     \param $result the optimized version of the submitted file 
+     \param $result the optimized version of the submitted file
 
      sort_selectors searches through the file for all selectors and rearranges
      them into alphabetical order.  This helps speed up the program by listing
@@ -99,7 +99,7 @@ function sort_selectors($file){
 /*!
      \brief A function to sort declarations alphabetically
      \param $file the file to be parsed
-     \param $result the optimized version of the submitted file 
+     \param $result the optimized version of the submitted file
 
      sort_properties identifies declarations inside a declaration block and
      sorts them alphabetically within that block.  Be careful to preserve order of
@@ -114,9 +114,9 @@ function sort_properties($file){
 /*!
      \brief A function to convert declarations to shorthand
      \param $file the file to be parsed
-     \param $result the optimized version of the submitted file 
+     \param $result the optimized version of the submitted file
 
-	 optimize_shorthand takes multiple declarations (such as margin-top and 
+	 optimize_shorthand takes multiple declarations (such as margin-top and
 	 margin-bottom) and replaces them with the shorthand version of that
 	 command.  This both compresses the physical code and improves speed.
 
@@ -129,7 +129,7 @@ function optimize_shorthand($file){
 /*!
      \brief A function to remove unneccesary uppercase characters
      \param $file the file to be parsed
-     \param $result the optimized version of the submitted file 
+     \param $result the optimized version of the submitted file
 
      fix_cases removes uppercase characters in CSS with a few exceptions:
      1) Class and Id names
@@ -205,6 +205,39 @@ function get_user_agent_string() {
         $return = '';
 
     return $return;
+}
+
+function find_and_combine_css($url){
+	$urlFile = file_get_contents($url);
+
+	$chunks = array();
+	$regex = '#<link>?.+href=["|\'].+["|\']?.+</link>#';
+	$regex = '%<link .+[^>]%';
+	preg_match_all($regex, $urlFile, $chunks);
+
+	$cssArray = array();
+
+	foreach($chunks[0] as $key => $value){
+		$array = array();
+		$regex = '%href=".+"%';
+		preg_match($regex, $value, $array);
+
+		foreach($array as $key2 => $value2){
+			$string = str_replace('href="', '', $value2);
+			$regex = '%".+"%';
+			$string = preg_replace($regex, '', $string);
+			$string = str_replace('"', "", $string);
+			$cssArray[] = $url.$string;
+		}
+	}
+
+	$masterCss = '';
+
+	foreach($cssArray as $key => $value){
+		$masterCss .= file_get_contents($value);
+	}
+
+	return $masterCss;
 }
 
 ?>

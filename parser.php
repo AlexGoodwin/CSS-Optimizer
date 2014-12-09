@@ -35,7 +35,7 @@ include ('functions.php');
 */
 
 // this creates a .txt file with the current time in milliseconds and writes the input to it so we can use the $file throughout!
-$file = "results/".explode(' ', microtime())[1].".css";
+$file = "results/".explode(' ', microtime()).".css";
 
 // prioritize the textarea over the url
 if(strlen($_POST['input']) < 1){
@@ -43,13 +43,24 @@ if(strlen($_POST['input']) < 1){
 	$url = htmlspecialchars($_POST['url']);
 	$urlSize = curl_get_file_size($url);
 
-	if($urlSize < 1000000){
-		file_put_contents($file, fopen($url, 'r'));
-		$originalLength = filesize($file);
+	$extension = preg_replace('%\?.+%', '', pathinfo($url, PATHINFO_EXTENSION));
+
+	// minify the css if it's a css file, crawl it if not
+	if($extension == 'css'){
+		if($urlSize < 1000000){
+			file_put_contents($file, fopen($url, 'r'));
+			$originalLength = filesize($file);
+		}
+		else{
+			echo '<script>console.log("file is too big");</script>';
+		}
 	}
 	else{
-		echo '<script>console.log("file is too big");</script>';
+		// file is not css.
+		file_put_contents($file, find_and_combine_css($url));
+		$originalLength = filesize($file);
 	}
+
 }
 else{
 	$inputSource = 'input';

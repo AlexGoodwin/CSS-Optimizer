@@ -26,9 +26,7 @@
     <!-- Adobe Typekit -->
 <!--     <script type="text/javascript" src="http://use.typekit.net/ote6eux.js"></script> -->
 <!-- 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
-	
+
 	<!-- font awesome -->
 	<link href="css/font-awesome.min.css" rel="stylesheet">
-	
-	<? error_reporting(-1); ?>
 </head>
