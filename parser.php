@@ -57,6 +57,9 @@ else{
 	$originalLength = filesize($file);
 }
 
+$originalFile = 'results/testing.txt';
+file_put_contents($originalFile, file_get_contents($file));
+
 // Actions. Not sure about what the best order is?
 if($_POST['removeWhiteSpace']){
 	remove_whitespace($file);
@@ -74,6 +77,7 @@ if($_POST['removeComments']){
           <a href="index.php">
             <h1><span>CSS</span> OPTIMIZER</h1>
             <p class="tagline">Let's cut the fat out of that sloppy CSS</p>
+            <? echo 'original filesize: '.filesize($originalFile).'<br>new filesize: '.filesize($file).'<br>';?>
           </a>
         </div>
       </div>
@@ -85,7 +89,7 @@ if($_POST['removeComments']){
             <div class="code-wrapper">
               <code class="language-css">
                 <? if($inputSource == 'input'){ echo $_POST['input'];}
-	               else{echo file_get_contents(utf8_decode($file));}?>
+	               else{echo file_get_contents(utf8_decode($originalFile));}?>
               </code>
             </div>
           </div>

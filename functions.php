@@ -39,7 +39,10 @@ function remove_whitespace($file) {
 
     $feed = file_get_contents($file);
 
-	$result = preg_replace('/\s+^\n/', '', $feed);
+	// old version
+	//$result = preg_replace('/\s+^\n/', '', $feed);
+
+	$result = str_replace(array("\r", "\n"), "", $feed);
 
 	file_put_contents($file, $result);
 

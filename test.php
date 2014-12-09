@@ -1,1 +1,5 @@
-<? echo htmlspecialchars('https://d78fikflryjgj.cloudfront.net/css/1f720b3b8973aaa61fd98491cf2c3f1b/core.css');?>
+<?
+	require('functions.php');
+	$file = 'css/font-awesome.css';
+	$file = remove_whitespace($file);
+	echo $file;
